@@ -1,6 +1,10 @@
-const state = {};
+const state = {
+  todos: []
+};
 
-const getters = {};
+const getters = {
+  allTodos: state => state.todos
+};
 
 const actions = {};
 
@@ -10,5 +14,5 @@ export default {
   state,
   getters,
   actions,
-  mutations,
+  mutations
 };
