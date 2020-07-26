@@ -1,17 +1,19 @@
 import axios from "axios";
 
 const state = {
-  todos: []
+  todos: [],
+  number: "10"
 };
 
 const getters = {
-  allTodos: state => state.todos
+  allTodos: state => state.todos,
+  number: state => state.number
 };
 
 const actions = {
   async fetchTodos({ commit }) {
     const response = await axios.get(
-      "https://jsonplaceholder.typicode.com/todos?_limit=12"
+      `https://jsonplaceholder.typicode.com/todos?_limit=${state.number}`
     );
 
     commit("setTodos", response.data);
@@ -22,7 +24,8 @@ const mutations = {
   setTodos: (state, todos) => (state.todos = todos),
   deleteTodo: (state, id) =>
     (state.todos = state.todos.filter(todo => todo.id !== id)),
-  addTodo: (state, newTodo) => (state.todos = [newTodo, ...state.todos])
+  addTodo: (state, newTodo) => (state.todos = [newTodo, ...state.todos]),
+  setNumber: (state, number) => (state.number = number)
 };
 
 export default {

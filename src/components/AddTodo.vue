@@ -39,7 +39,7 @@ export default {
 <style lang="scss" scoped>
 form {
   max-width: 500px;
-  margin: 0 auto 32px;
+  margin: 0 auto 16px;
   padding: 16px;
   display: flex;
 

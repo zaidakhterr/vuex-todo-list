@@ -2,6 +2,7 @@
   <div id="app">
     <h1>TodoList</h1>
     <AddTodo />
+    <FilterTodo />
     <div class="legend">
       <p class="completed">Completed</p>
       <p class="not-completed">Not Completed</p>
@@ -13,12 +14,14 @@
 <script>
 import Todos from "./components/Todos";
 import AddTodo from "./components/AddTodo";
+import FilterTodo from "./components/FilterTodo";
 
 export default {
   name: "App",
   components: {
     Todos,
-    AddTodo
+    AddTodo,
+    FilterTodo
   }
 };
 </script>
