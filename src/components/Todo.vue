@@ -1,7 +1,7 @@
 <template>
-  <div class="todo">
-    <p>{{ todo.title }}</p>
-    <button @click="deleteTodo(todo.id)" class="del-btn">&#x2716;</button>
+  <div class="todo" :class="{ 'is-completed': todo.completed }">
+    <p @dblclick="toggleTodo">{{ todo.title }}</p>
+    <button class="del-btn" @click="deleteTodo(todo.id)">&#x2716;</button>
   </div>
 </template>
 
@@ -14,7 +14,10 @@ export default {
     todo: Object
   },
   methods: {
-    ...mapMutations(["deleteTodo"])
+    ...mapMutations(["deleteTodo"]),
+    toggleTodo() {
+      this.todo.completed = !this.todo.completed;
+    }
   }
 };
 </script>
@@ -24,8 +27,9 @@ export default {
   transition: all 500ms;
   width: 100%;
   max-width: calc(500px - 32px);
-  border: solid 1px #d9d9d9;
-  background-color: #fff;
+  border: solid 1px #42b983;
+  color: #fff;
+  background-color: #2c3e50;
   border-radius: 3px;
   margin-bottom: 16px;
   padding: 8px 16px;
@@ -33,26 +37,17 @@ export default {
   align-items: center;
   justify-content: space-between;
 
+  &.is-completed {
+    background-color: #42b983;
+    border-color: #2c3e50;
+  }
+
   p {
     position: relative;
     cursor: pointer;
     user-select: none;
     padding-right: 16px;
-
-    &::after {
-      position: absolute;
-      content: "";
-      height: 2px;
-      width: 0px;
-      background: rgba(#2c3e50, 0.5);
-      transition: all 200ms;
-      bottom: 10px;
-      left: -5px;
-    }
-  }
-
-  .is-completed::after {
-    width: calc(100% + 10px);
+    width: 100%;
   }
 
   .del-btn {
