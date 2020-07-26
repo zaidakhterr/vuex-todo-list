@@ -1,6 +1,10 @@
 <template>
   <div id="app">
     <h1>TodoList</h1>
+    <div class="legend">
+      <p class="completed">Completed</p>
+      <p class="not-completed">Not Completed</p>
+    </div>
     <Todos />
   </div>
 </template>
@@ -40,5 +44,37 @@ h1 {
   margin: 32px 0;
   text-align: center;
   color: #2c3e50;
+}
+
+.legend {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+
+  p {
+    position: relative;
+    margin-left: 32px;
+    margin-right: 24px;
+
+    &::before {
+      content: " ";
+      height: 16px;
+      width: 24px;
+      border: 1px solid #2c3e50;
+      position: absolute;
+      left: -28px;
+      top: 2px;
+      border-radius: 3px;
+    }
+
+    &.completed::before {
+      background-color: #42b983;
+    }
+
+    &.not-completed::before {
+      background-color: #2c3e50;
+    }
+  }
 }
 </style>

@@ -31,7 +31,7 @@ export default {
 .todo-list {
   width: 100%;
   max-width: 500px;
-  margin: 32px auto;
+  margin: 8px auto;
 
   > div {
     width: 100%;

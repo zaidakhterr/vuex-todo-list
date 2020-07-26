@@ -27,7 +27,7 @@ export default {
   transition: all 500ms;
   width: 100%;
   max-width: calc(500px - 32px);
-  border: solid 1px #42b983;
+  border: solid 1px #2c3e50;
   color: #fff;
   background-color: #2c3e50;
   border-radius: 3px;
