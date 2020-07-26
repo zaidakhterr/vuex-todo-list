@@ -1,15 +1,20 @@
 <template>
   <div class="todo">
     <p>{{ todo.title }}</p>
-    <button class="del-btn">&#x2716;</button>
+    <button @click="deleteTodo(todo.id)" class="del-btn">&#x2716;</button>
   </div>
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   name: "Todos",
   props: {
     todo: Object
+  },
+  methods: {
+    ...mapMutations(["deleteTodo"])
   }
 };
 </script>

@@ -19,7 +19,9 @@ const actions = {
 };
 
 const mutations = {
-  setTodos: (state, todos) => (state.todos = todos)
+  setTodos: (state, todos) => (state.todos = todos),
+  deleteTodo: (state, id) =>
+    (state.todos = state.todos.filter(todo => todo.id !== id))
 };
 
 export default {
