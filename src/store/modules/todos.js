@@ -21,7 +21,8 @@ const actions = {
 const mutations = {
   setTodos: (state, todos) => (state.todos = todos),
   deleteTodo: (state, id) =>
-    (state.todos = state.todos.filter(todo => todo.id !== id))
+    (state.todos = state.todos.filter(todo => todo.id !== id)),
+  addTodo: (state, newTodo) => (state.todos = [newTodo, ...state.todos])
 };
 
 export default {

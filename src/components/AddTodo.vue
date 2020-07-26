@@ -1,11 +1,13 @@
 <template>
-  <form>
+  <form @submit="addTodo">
     <input type="text" autocomplete="off" name="title" v-model.trim="title" />
-    <button type="submit">Add Item</button>
+    <button type="submit">Add Todo</button>
   </form>
 </template>
 
 <script>
+import { v4 as uuid } from "uuid";
+import { mapMutations } from "vuex";
 export default {
   name: "AddTodo",
   data() {
@@ -13,7 +15,24 @@ export default {
       title: ""
     };
   },
-  methods: {}
+  methods: {
+    ...mapMutations({ add: "addTodo" }),
+    addTodo(e) {
+      e.preventDefault();
+
+      if (this.title !== "") {
+        const newTodo = {
+          id: uuid(),
+          title: this.title,
+          completed: false
+        };
+
+        this.add(newTodo);
+      }
+
+      this.title = "";
+    }
+  }
 };
 </script>
 
